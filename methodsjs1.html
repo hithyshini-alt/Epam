@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Array Methods</title>
+</head>
+<body>
+    <h2>Sorting</h2>
+    <p id="arrayMethods"></p>
+
+    <script>
+        let fruits = ["Apple", "Cherry", "Banana"];
+        
+        fruits.push("Mango");
+
+        let removed = fruits.pop();
+
+        fruits.sort();
+
+        document.getElementById("arrayMethods").innerHTML = "Sorted Fruits: " + fruits.join(", ");
+    </script>
+</body>
+</html>
