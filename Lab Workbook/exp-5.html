@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profit Calculator</title>
+    <style>
+        body{
+            background-color: rgb(166, 196, 202);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .box {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"><br><br><br>   <br><br><br>   <br><br><br>   <br><br><br>   
+    <h1>Calculate Profit</h1>
+    <button onclick="calculateProfit()">Calculate Profit</button>
+    <p id="result"></p>
+    </div>
+
+    <script>
+        function calculateProfit() {
+            let initialAmount = parseFloat(prompt("Enter the deposit amount:"));
+
+            if (isNaN(initialAmount) || initialAmount <= 0) {
+                alert("Please enter  valid number.");
+                return;
+            }
+
+            let interestRate = 0.03;
+            let profit = initialAmount * interestRate;
+            document.getElementById("result").textContent = 
+            `The profit at 3% intrest is: Rs.${profit.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

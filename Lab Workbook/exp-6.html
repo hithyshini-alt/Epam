@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filter Array with User Input</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+        .box {
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"><br><br><br>   <br><br><br>   <br><br><br>   <br><br><br>  
+        <h1>Filter Array </h1>
+        <button onclick="showFilteredArray()">Filter Array</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function showFilteredArray() {
+            const input = prompt("Enter numbers separated by commas :");
+            
+            if (input) {
+                const numbers = input.split(',').map(num => parseFloat(num.trim()));
+                
+                const filteredArray = numbers.filter(num => !isNaN(num) && num >= 0);
+                
+                document.getElementById("result").textContent = 
+                    `Filtered Array: [${filteredArray.join(", ")}]`;
+            } else {
+                alert("Please enter valid numbers.");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Norway</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+        }
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            font-size: 2em;
+            color: #003366;
+        }
+        p {
+            font-size: 1.1em;
+            color: #333;
+        }
+        footer {
+            text-align: center;
+            background-color: #587ca0;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            bottom: 0;
+        }
+        
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        img {
+            display: block;
+            width: 48%; 
+            border-radius: 8px;
+        }
+
+        button {
+            background-color: #1b1c1d;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            position: absolute;
+            top: 20px;  
+            right: 20px; 
+        }
+        button:hover {
+            background-color: #005599;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Explore Norway</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Attractions</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Welcome to Norway!</h2>
+        <p>Norway, known for its stunning fjords, beautiful landscapes, and rich cultural heritage, is one of the most sought-after travel destinations in the world. Whether you're exploring the iconic Northern Lights, hiking up to the scenic peaks of the Lofoten Islands, or enjoying the vibrant life in Oslo, Norway offers an unforgettable experience.</p>
+        
+        <div class="image-container">
+            <img src="Norway.jpeg" alt="Norway">
+            <img src="norway1.jpeg" alt="Norway Landscape">
+        </div>
+
+        <br><br><br>
+    </main>
+
+    <footer>
+        <p>Explore Norway</p>
+    </footer>
+
+    <button onclick="window.print()">Print This Page</button>
+
+</body>
+</html>
