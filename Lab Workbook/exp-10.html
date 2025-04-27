@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Shuffle Puzzle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #game-board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .tile {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .tile.empty {
+            background-color: white;
+            border: 2px dashed #ccc;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+        }
+
+        #timer {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Number Shuffle Puzzle</h1>
+
+    <div id="game-board">
+        <div class="tile" id="tile1">1</div>
+        <div class="tile" id="tile2">2</div>
+        <div class="tile" id="tile3">3</div>
+        <div class="tile" id="tile4">4</div>
+        <div class="tile" id="tile5">5</div>
+        <div class="tile" id="tile6">6</div>
+        <div class="tile" id="tile7">7</div>
+        <div class="tile" id="tile8">8</div>
+        <div class="tile empty"></div>
+    </div>
+
+    <div>
+        <button id="shuffleButton">Shuffle</button>
+        <button id="startButton">Start</button>
+        <button id="resetButton">Reset</button>
+    </div>
+
+    <p id="timer">Time: 0s</p>
+
+    <script>
+        let timeElapsed = 0;
+        let timer;
+
+        const tiles = Array.from(document.querySelectorAll('.tile'));
+        let emptyTile = document.querySelector('.empty');
+
+        function shuffleBoard() {
+            const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+            tiles.forEach((tile, index) => {
+                if (!tile.classList.contains('empty')) {
+                    const randIndex = Math.floor(Math.random() * numbers.length);
+                    tile.textContent = numbers.splice(randIndex, 1)[0];
+                }
+            });
+            emptyTile.textContent = '';
+        }
+
+        function startTimer() {
+            timer = setInterval(() => {
+                timeElapsed++;
+                document.getElementById('timer').textContent = `Time: ${timeElapsed}s`;
+            }, 1000);
+        }
+
+        function stopTimer() {
+            clearInterval(timer);
+        }
+
+        function moveTile(tile) {
+            const tileIndex = tiles.indexOf(tile);
+            const emptyIndex = tiles.indexOf(emptyTile);
+
+            if ([tileIndex - 3, tileIndex + 3, tileIndex - 1, tileIndex + 1].includes(emptyIndex)) {
+                emptyTile.textContent = tile.textContent;
+                tile.textContent = '';
+                emptyTile = tile;
+            }
+        }
+
+        document.querySelectorAll('.tile').forEach(tile => {
+            tile.addEventListener('click', () => {
+                if (emptyTile.textContent === '') moveTile(tile);
+            });
+        });
+
+        document.getElementById('shuffleButton').addEventListener('click', () => {
+            shuffleBoard();
+            stopTimer();
+            timeElapsed = 0;
+            document.getElementById('timer').textContent = 'Time: 0s';
+        });
+
+        document.getElementById('startButton').addEventListener('click', () => {
+            shuffleBoard();
+            startTimer();
+        });
+
+        document.getElementById('resetButton').addEventListener('click', () => {
+            stopTimer();
+            timeElapsed = 0;
+            document.getElementById('timer').textContent = 'Time: 0s';
+            shuffleBoard();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Event Lab</title>
+    <style>
+        /* Example basic styling for elements */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #task1, #task2, #task3 {
+            margin-bottom: 20px;
+        }
+
+        #mouseArea {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        #mouseArea:hover {
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Task 1 Start -->
+    <div id="task1">
+        <button id="btnClick">Click Me</button>
+        <p id="clickMessage"></p>
+    </div>
+    <!-- Task 1 End -->
+
+    <!-- Task 2 Start -->
+    <div id="task2">
+        <input type="text" id="textInput" placeholder="Type something">
+        <p id="keyupMessage"></p>
+    </div>
+    <!-- Task 2 End -->
+
+    <!-- Task 3 Start -->
+    <div id="task3">
+        <div id="mouseArea">
+            Hover over me!
+        </div>
+        <p id="mouseoverMessage"></p>
+    </div>
+    <!-- Task 3 End -->
+
+    <script>
+        // Task 1: Button Click Event
+        document.getElementById('btnClick').addEventListener('click', function () {
+            document.getElementById('clickMessage').textContent = "Button clicked!";
+        });
+
+        // Task 2: Keyup Event on Text Input
+        document.getElementById('textInput').addEventListener('keyup', function () {
+            const inputText = document.getElementById('textInput').value;
+            document.getElementById('keyupMessage').textContent = `You typed: ${inputText}`;
+        });
+
+        // Task 3: Mouseover Event on Div
+        document.getElementById('mouseArea').addEventListener('mouseover', function () {
+            document.getElementById('mouseoverMessage').textContent = "Mouse is over the area!";
+        });
+
+        // Optional: Mouseout Event for Task 3 (reset message when mouse leaves)
+        document.getElementById('mouseArea').addEventListener('mouseout', function () {
+            document.getElementById('mouseoverMessage').textContent = "";
+        });
+    </script>
+
+</body>
+
+</html>
