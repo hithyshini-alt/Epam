@@ -10,7 +10,6 @@
     <button onclick="triggerError()">Click to Trigger Error</button>
 
     <script>
-        // In-memory error storage for demonstration
         let errorLogs = [];
 
         function triggerError() {
@@ -37,11 +36,8 @@
 
             // Push the error details into the errorLogs array
             errorLogs.push(errorDetails);
-
-            // Optionally, save to localStorage for persistence across sessions
             localStorage.setItem('errorLogs', JSON.stringify(errorLogs));
 
-            // You could also send the error logs to an external logging system here
         }
 
         // Function to retrieve and display stored error logs

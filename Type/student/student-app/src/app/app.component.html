@@ -1,0 +1,24 @@
+<h1>Student Application</h1>
+
+<h3>Enter Student Details:</h3>
+
+<!-- Input fields for student details -->
+<input type="text" placeholder="Name" (input)="onInputChange($event, 'name')"><br><br>
+<input type="text" placeholder="Grade" (input)="onInputChange($event, 'grade')"><br><br>
+<input type="text" placeholder="Subject" (input)="onInputChange($event, 'subject')"><br><br>
+<input type="text" placeholder="Roll Number" (input)="onInputChange($event, 'rollNo')"><br><br>
+<input type="text" placeholder="Address" (input)="onInputChange($event, 'address')"><br><br>
+<input type="text" placeholder="Phone Number" (input)="onInputChange($event, 'phone')"><br><br>
+
+<!-- Save Button -->
+<button (click)="saveStudent()">Save</button>
+
+<h3>Student Information:</h3>
+
+<!-- Display entered student details -->
+<p><b>Name:</b> {{ name }}</p>
+<p><b>Grade:</b> {{ grade }}</p>
+<p><b>Subject:</b> {{ subject }}</p>
+<p><b>Roll Number:</b> {{ rollNo }}</p>
+<p><b>Address:</b> {{ address }}</p>
+<p><b>Phone Number:</b> {{ phone }}</p>
